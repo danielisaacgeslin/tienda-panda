@@ -1,0 +1,11 @@
+.todo-list {
+    margin-top: 15px;
+    
+    &__list {
+        width: 100%;
+        max-width: 450px;
+        margin: 15px auto;
+        display: block;
+        padding: 0;
+    }
+}

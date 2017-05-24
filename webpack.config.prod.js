@@ -1,0 +1,65 @@
+import webpack from 'webpack';
+import HtmlWebPackPlugin from 'html-webpack-plugin';
+import autoprefixer from 'autoprefixer';
+import path from 'path';
+
+module.exports = {
+  entry: [path.resolve(__dirname, './src/app/App.js')],
+  output: {
+    path: path.resolve(__dirname, 'build'), // eslint-disable-line
+    publicPath: '/',  // relativa al webpak.config
+    filename: './src/bundle.js'
+  },
+  stats: {
+    colors: true,
+    reasons: true //if fail, show it very verbose
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: 'babel-loader',
+        query: {
+          presets: ['react', 'es2015', 'stage-0'],
+          plugins: ['react-html-attrs',
+            'transform-class-properties',
+            'transform-decorators-legacy',
+            ["transform-runtime", {
+              "polyfill": false,
+              "regenerator": true
+            }]
+          ],
+        }
+      },
+      { test: /(\.css|\.scss)$/, loaders: ['style-loader', 'css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap'] },
+      { test: /\.(jpe?g|png|gif|png|woff|woff2|eot|ttf|svg)$/, loader: 'url-loader?limit=10000&name=./src/img/[hash].[ext]' },
+      { test: /\.eot(\?v=\d+.\d+.\d+)?$/, loader: 'file-loader' },
+      { test: /=\.woff(2)?(\?v=[0-9]\.[0-9]\.[0-9])?$/, loader: 'url-loader?limit=10000&name=./src/css/fonts/[hash].[ext]&mimetype=application/font-woff' },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&name=./src/css/fonts/[hash].[ext]&mimetype=application/octet-stream' },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'url-loader?limit=10000&name=./src/css/fonts/[hash].[ext]&mimetype=image/svg+xml' },
+      { test: /\.ico$/, loader: 'file-loader?name=[name].[ext]' },
+      { test: /\.html$/, loader: 'html-loader' },
+    ],
+  },
+  postcss: [autoprefixer],
+  plugins: [
+    new HtmlWebPackPlugin({
+      template: './src/index.ejs',
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      beautify: false,
+      mangle: true,
+      sourcemap: false,
+      comments: false
+    }),
+    new webpack.optimize.DedupePlugin(),
+    new webpack.optimize.OccurenceOrderPlugin(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
+    new webpack.IgnorePlugin(/^\.\/locale$/, [/moment$/])
+  ]
+};

@@ -1,3 +1,3 @@
-import { default as Products } from './container';
+import { default as Products } from './products-container';
 
 export { Products };

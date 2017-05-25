@@ -1,17 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-require("./style.scss");
+import './style.scss';
 
-class SecondHand extends React.Component {
+class Promotions extends React.Component {
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div className="second-hand">
-                second hand go here
+            <div className="promotions">
+                promotions go here
             </div>
         );
     }
@@ -25,4 +25,4 @@ const mapDispatchToProps = (dispatch) => {
     return {};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(SecondHand);
+export default connect(mapStateToProps, mapDispatchToProps)(Promotions);

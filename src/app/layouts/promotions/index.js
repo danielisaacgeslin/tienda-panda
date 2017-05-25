@@ -1,3 +1,3 @@
-import { default as Promotions } from './container';
+import { default as Promotions } from './promotions-container';
 
 export { Promotions };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-require("./style.scss");
+import './style.scss';
 
 class Products extends React.Component {
     constructor(props) {

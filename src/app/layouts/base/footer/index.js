@@ -1,3 +1,3 @@
-import { default as Footer } from './component';
+import { default as Footer } from './footer-component';
 
 export { Footer };

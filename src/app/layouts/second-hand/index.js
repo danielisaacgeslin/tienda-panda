@@ -1,3 +1,3 @@
-import { default as SecondHand } from './container';
+import { default as SecondHand } from './second-hand-container';
 
 export { SecondHand };

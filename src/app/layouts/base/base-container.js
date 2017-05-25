@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Header } from './header';
 import { Footer } from './footer';
 
-require("./style.scss");
+import './style.scss';
 
 class Main extends React.Component {
     constructor(props) {

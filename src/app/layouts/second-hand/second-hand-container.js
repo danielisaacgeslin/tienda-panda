@@ -1,28 +1,39 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { fetchSecondHand } from './second-hand-actions';
+
+
 import './style.scss';
 
 class SecondHand extends React.Component {
     constructor(props) {
         super(props);
+        this.props.fetchSecondHand();
     }
 
     render() {
         return (
             <div className="second-hand">
-                second hand go here
+                <ol>
+                    {!this.props.secondHand.items.length && (<li>loading...</li>)}
+                    {this.props.secondHand.items.map(item => (
+                        <li key={item.id}>{item.title} - <strong>${item.price.toLocaleString()}</strong></li>
+                    ))}
+                </ol>
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return { secondHand: state.secondHand };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        fetchSecondHand: () => dispatch(fetchSecondHand())
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SecondHand);

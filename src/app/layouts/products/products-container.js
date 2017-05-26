@@ -15,6 +15,7 @@ class Products extends React.Component {
         return (
             <div className="products">
                 <ol>
+                    {!this.props.products.items.length && (<li>loading...</li>)}
                     {this.props.products.items.map(item => (
                         <li key={item.id}>{item.title} - <strong>${item.price.toLocaleString()}</strong></li>
                     ))}

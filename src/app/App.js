@@ -6,7 +6,8 @@ import { Provider } from 'react-redux';
 import '../css/style.scss';
 
 import { routeNames } from './config/constants';
-import store from './store';
+import { store } from './store';
+
 import { Main } from './layouts/base';
 import { Products } from './layouts/products';
 import { Promotions } from './layouts/promotions';

@@ -4,7 +4,7 @@ import autoprefixer from 'autoprefixer';
 import path from 'path';
 
 module.exports = {
-  entry: [path.resolve(__dirname, './src/app/App.js')],
+  entry: [path.resolve(__dirname, './src/app/app.js')],
   output: {
     path: path.resolve(__dirname, 'build'), // eslint-disable-line
     publicPath: '/',  // relativa al webpak.config

@@ -1,28 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { fetchProducts } from './products-actions';
+
 import './style.scss';
 
 class Products extends React.Component {
     constructor(props) {
         super(props);
+        this.props.fetchProducts();
     }
 
     render() {
         return (
             <div className="products">
-                products go here
+                <ol>
+                    {this.props.products.items.map(item => (
+                        <li key={item.id}>{item.title} - <strong>${item.price.toLocaleString()}</strong></li>
+                    ))}
+                </ol>
             </div>
         );
     }
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return { products: state.products };
 };
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        fetchProducts: () => dispatch(fetchProducts())
+    };
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Products);

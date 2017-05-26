@@ -8,7 +8,7 @@ import './style.scss';
 class Promotions extends React.Component {
     constructor(props) {
         super(props);
-        this.props.fetchPromotions();
+        if (!this.props.promotions.items.length) this.props.fetchPromotions();
     }
 
     render() {

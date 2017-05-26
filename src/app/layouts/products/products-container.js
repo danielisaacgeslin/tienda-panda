@@ -8,7 +8,7 @@ import './style.scss';
 class Products extends React.Component {
     constructor(props) {
         super(props);
-        this.props.fetchProducts();
+        if (!this.props.products.items.length) this.props.fetchProducts();
     }
 
     render() {

@@ -9,7 +9,7 @@ import './style.scss';
 class SecondHand extends React.Component {
     constructor(props) {
         super(props);
-        this.props.fetchSecondHand();
+        if (!this.props.secondHand.items.length) this.props.fetchSecondHand();
     }
 
     render() {

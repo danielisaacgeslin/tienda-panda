@@ -14,13 +14,17 @@ class Promotions extends React.Component {
 
     render() {
         return (
-            <div className="promotions">
-                <ol>
-                    {!this.props.promotions.items.length && (<li>loading...</li>)}
-                    {this.props.promotions.items.map(item => (
-                        <Article key={item.id} content={item}></Article>
-                    ))}
-                </ol>
+            <div className="promotions container">
+                <div className="row">
+                    <div className="col-xs-12">
+                        <ol>
+                            {!this.props.promotions.items.length && (<li>loading...</li>)}
+                            {this.props.promotions.items.map(item => (
+                                <Article key={item.id} content={item}></Article>
+                            ))}
+                        </ol>
+                    </div>
+                </div>
             </div>
         );
     }

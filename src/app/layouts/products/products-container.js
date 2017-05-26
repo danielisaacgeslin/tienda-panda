@@ -14,13 +14,17 @@ class Products extends React.Component {
 
     render() {
         return (
-            <div className="products">
-                <ol>
-                    {!this.props.products.items.length && (<li>loading...</li>)}
-                    {this.props.products.items.map(item => (
-                        <Article key={item.id} content={item}></Article>
-                    ))}
-                </ol>
+            <div className="products container">
+                <div className="row">
+                    <div className="col-xs-12">
+                        <ol>
+                            {!this.props.products.items.length && (<li>loading...</li>)}
+                            {this.props.products.items.map(item => (
+                                <Article key={item.id} content={item}></Article>
+                            ))}
+                        </ol>
+                    </div>
+                </div>
             </div>
         );
     }

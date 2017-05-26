@@ -14,13 +14,17 @@ class SecondHand extends React.Component {
 
     render() {
         return (
-            <div className="second-hand">
-                <ol>
-                    {!this.props.secondHand.items.length && (<li>loading...</li>)}
-                    {this.props.secondHand.items.map(item => (
-                        <Article key={item.id} content={item}></Article>
-                    ))}
-                </ol>
+            <div className="second-hand container">
+                <div className="row">
+                    <div className="col-xs-12">
+                        <ol>
+                            {!this.props.secondHand.items.length && (<li>loading...</li>)}
+                            {this.props.secondHand.items.map(item => (
+                                <Article key={item.id} content={item}></Article>
+                            ))}
+                        </ol>
+                    </div>
+                </div>
             </div>
         );
     }

@@ -1,0 +1,1 @@
+export { default as PandaSlider } from './panda-slider-component';

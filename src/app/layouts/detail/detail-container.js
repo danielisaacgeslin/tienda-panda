@@ -1,7 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import { fetchDetail, fetchDetailSuccess } from './detail-actions';
+import { PandaSlider } from '../../shared/components/panda-slider';
 
 import './style.scss';
 
@@ -27,10 +29,30 @@ class Detail extends React.Component {
     }
 
     render() {
+        const pictures = [];
+        (this.props.detail.pictures || []).forEach(picture => {
+            pictures.push(<div key={picture.id}><img src={picture.url} /></div>);
+        });
         return (
-            <div className="detail">
-                <p>detail for {this.props.match.params.id}</p>
-                <p>{JSON.stringify(this.props.detail)}</p>
+            <div className="detail container">
+                <div className="row">
+                    <div className="col-xs-6">
+                        <PandaSlider>
+                            {pictures.length ? pictures : <div></div>}
+                        </PandaSlider>
+                    </div>
+                    <div className="col-xs-6">
+                        <h1>
+                            <Link to={this.props.detail.permalink || ''} target="_blank">{this.props.detail.title}</Link>
+                        </h1>
+                        <h2>${this.props.detail.price && this.props.detail.price.toLocaleString()}</h2>
+                    </div>
+                    <div className="col-xs-12">
+                        {(this.props.detail.attributes || []).map(attr => (
+                            <p key={attr.id}><strong>{attr.name}: </strong>{attr.value_name}</p>
+                        ))}
+                    </div>
+                </div>
             </div>
         );
     }

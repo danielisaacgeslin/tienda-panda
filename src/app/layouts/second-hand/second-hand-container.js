@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchSecondHand } from './second-hand-actions';
-
+import { Article } from '../../shared/components/article-component';
 
 import './style.scss';
 
@@ -18,7 +18,7 @@ class SecondHand extends React.Component {
                 <ol>
                     {!this.props.secondHand.items.length && (<li>loading...</li>)}
                     {this.props.secondHand.items.map(item => (
-                        <li key={item.id}>{item.title} - <strong>${item.price.toLocaleString()}</strong></li>
+                        <Article key={item.id} content={item}></Article>
                     ))}
                 </ol>
             </div>

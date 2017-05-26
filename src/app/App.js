@@ -12,6 +12,7 @@ import { Main } from './layouts/base';
 import { Products } from './layouts/products';
 import { Promotions } from './layouts/promotions';
 import { SecondHand } from './layouts/second-hand';
+import { Detail } from './layouts/detail';
 
 
 class App extends React.Component {
@@ -25,6 +26,7 @@ class App extends React.Component {
                                 <Route path={routeNames.products} component={Products}></Route>
                                 <Route path={routeNames.promotions} component={Promotions}></Route>
                                 <Route path={routeNames.secondHand} component={SecondHand}></Route>
+                                <Route path={`${routeNames.detail}/:id`} component={Detail}></Route>
                                 <Route component={Products}></Route>
                             </Switch>
                         </Main>

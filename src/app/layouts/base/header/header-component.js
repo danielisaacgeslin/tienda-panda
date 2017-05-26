@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { routeNames } from '../../../config/constants';
 
-require("./style.scss");
+import './style.scss';
 
 export default class Header extends React.Component {
     constructor(props) {

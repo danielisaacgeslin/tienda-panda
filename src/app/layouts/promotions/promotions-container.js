@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchPromotions } from './promotions-actions';
+import { Article } from '../../shared/components/article-component';
 
 import './style.scss';
 
@@ -17,7 +18,7 @@ class Promotions extends React.Component {
                 <ol>
                     {!this.props.promotions.items.length && (<li>loading...</li>)}
                     {this.props.promotions.items.map(item => (
-                        <li key={item.id}>{item.title} - <strong>${item.price.toLocaleString()}</strong></li>
+                        <Article key={item.id} content={item}></Article>
                     ))}
                 </ol>
             </div>

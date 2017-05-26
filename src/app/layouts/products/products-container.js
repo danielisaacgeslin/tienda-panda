@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchProducts } from './products-actions';
+import { Article } from '../../shared/components/article-component';
 
 import './style.scss';
 
@@ -17,7 +18,7 @@ class Products extends React.Component {
                 <ol>
                     {!this.props.products.items.length && (<li>loading...</li>)}
                     {this.props.products.items.map(item => (
-                        <li key={item.id}>{item.title} - <strong>${item.price.toLocaleString()}</strong></li>
+                        <Article key={item.id} content={item}></Article>
                     ))}
                 </ol>
             </div>

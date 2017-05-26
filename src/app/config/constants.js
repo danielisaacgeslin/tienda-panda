@@ -1,5 +1,6 @@
 export const routeNames = {
     products: '/productos',
     promotions: '/promociones',
-    secondHand: '/segunda-mano'
+    secondHand: '/segunda-mano',
+    detail: '/detail'
 };

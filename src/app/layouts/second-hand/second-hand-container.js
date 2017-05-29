@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchSecondHand } from './second-hand-actions';
-import { Article } from '../../shared/components/article-component';
+import { Article } from '../../shared/components/article';
+import { Loading } from '../../shared/components/loading';
 
 import './style.scss';
 
@@ -18,7 +19,7 @@ class SecondHand extends React.Component {
                 <div className="row">
                     <div className="col-xs-12">
                         <ol>
-                            {!this.props.secondHand.items.length && (<li>loading...</li>)}
+                            {!this.props.secondHand.items.length && (<Loading></Loading>)}
                             {this.props.secondHand.items.map(item => (
                                 <Article key={item.id} content={item}></Article>
                             ))}

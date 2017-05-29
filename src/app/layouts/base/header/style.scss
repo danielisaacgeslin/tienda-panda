@@ -1,0 +1,30 @@
+@import '../../../../css/colors';
+
+.header {
+    background-color: $tp-white;
+
+    .main-logo {
+        &__image {
+            width: 100%;
+            height: auto;
+            margin: 0 auto;
+            display: block;
+        }
+    }
+
+    .nav {
+        background-color: $tp-primary;
+
+        &__item-container {
+            padding: 5px 0;
+            float: left;
+            margin-right: 15px;
+            list-style: none;
+        }
+
+        &__item {
+            color: $tp-light-gray;
+            text-decoration: none;
+        }
+    }
+}

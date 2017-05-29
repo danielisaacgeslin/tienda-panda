@@ -13,13 +13,34 @@ export default class Header extends React.Component {
     render() {
         return (
             <header className="header">
-                just a header
-                <nav>
-                    <ul>
-                        <li><Link to={routeNames.products}>Productos</Link></li>
-                        <li><Link to={routeNames.promotions}>Promociones</Link></li>
-                        <li><Link to={routeNames.secondHand}>Segunda Mano</Link></li>
-                    </ul>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-6 col-sm-offset-3 main-logo">
+                            <img className="main-logo__image" src="./assets/tpanda.png" alt="TIENDA PANDA" />
+                        </div>
+                        <div className="col-sm-3">
+                            social networks
+                        </div>
+                    </div>
+                </div>
+                <nav className="nav">
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-xs-12">
+                                <ul>
+                                    <li className="nav__item-container">
+                                        <Link className="nav__item" to={routeNames.products}>Productos</Link>
+                                    </li>
+                                    <li className="nav__item-container">
+                                        <Link className="nav__item" to={routeNames.promotions}>Promociones</Link>
+                                    </li>
+                                    <li className="nav__item-container">
+                                        <Link className="nav__item" to={routeNames.secondHand}>Segunda Mano</Link>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </nav>
             </header>
         );

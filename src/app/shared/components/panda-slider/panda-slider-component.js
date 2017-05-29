@@ -11,10 +11,9 @@ export default class PandaSlider extends React.Component {
             dots: true,
             infinite: true,
             speed: 500,
-            slidesToShow: 1,
-            slidesToScroll: 1,
             fade: true,
-            autoplay: true
+            autoplay: true,
+            adaptiveHeight: true
         };
     }
 

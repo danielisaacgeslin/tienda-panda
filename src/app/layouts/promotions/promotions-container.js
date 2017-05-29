@@ -2,7 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { fetchPromotions } from './promotions-actions';
-import { Article } from '../../shared/components/article-component';
+import { Article } from '../../shared/components/article';
+import { Loading } from '../../shared/components/loading';
 
 import './style.scss';
 
@@ -18,7 +19,7 @@ class Promotions extends React.Component {
                 <div className="row">
                     <div className="col-xs-12">
                         <ol>
-                            {!this.props.promotions.items.length && (<li>loading...</li>)}
+                            {!this.props.promotions.items.length && (<Loading></Loading>)}
                             {this.props.promotions.items.map(item => (
                                 <Article key={item.id} content={item}></Article>
                             ))}

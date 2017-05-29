@@ -9,18 +9,23 @@ export default class PandaSlider extends React.Component {
         super(props);
         this.settings = {
             dots: true,
+            slidesToShow: 1,
+            slidesToScroll: 1,
             infinite: true,
-            speed: 500,
-            fade: true,
+            speed: 750,
             autoplay: true,
-            adaptiveHeight: true
+            autoplaySpeed: 3000,
+            adaptiveHeight: true,
+            pauseOnHover: true,
+            centerMode: true
         };
+        setTimeout(()=>this.refs.slider.slickNext(), 3000); // workaround, autoplay sometimes freeze on the first slide
     }
 
     render() {
         return (
             <div className="panda-slider">
-                <Slider settings={Object.assign({}, this.settings, (this.props.settings || {}))}>
+                <Slider ref="slider" {...Object.assign({}, this.settings, (this.props.settings || {})) }>
                     {this.props.children}
                 </Slider>
             </div>

@@ -1,19 +1,42 @@
 @import '~slick-carousel/slick/slick.css';
 @import '~slick-carousel/slick/slick-theme.css';
+@import '../../../../css/colors';
+
+%before-buttons {
+    color: $tp-primary;
+    font-size: 25px;
+    z-index:99;
+}
 
 .panda-slider {
+    width: 100%;
+    overflow: hidden;
     
     .slick-next {
-        right: 0;
+        right: 25px;
+        
+        &:before {
+            @extend %before-buttons;
+        }
     }
 
     .slick-prev {
-        left: 0;
+        left: 25px;
+        
+        &:before {
+            @extend %before-buttons;
+        }
     }
 
     .slick-list {
         margin: auto;
         width: calc(100% - 60px);
+    }
+
+    .slick-slide {
+        img {
+            margin: auto;
+        }
     }
 
 }

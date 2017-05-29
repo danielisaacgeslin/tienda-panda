@@ -15,24 +15,29 @@ class Products extends React.Component {
     }
 
     render() {
+        const articles = [];
+        this.props.products.items.forEach((item, index) => {
+            articles.push((
+                <div key={item.id} className="col-md-3">
+                    <Article content={item}></Article>
+                </div>
+            ));
+            if (!((index + 1) % 4)) articles.push((<div key={`clear${item.id}`} className="clearfix"></div>));
+        });
         return (
             <div className="products">
                 <PandaSlider>
-                    <div>1111111</div>
-                    <div>2222222</div>
-                    <div>3333333</div>
-                    <div>4444444</div>
+                    <div><img src='/assets/banner1.jpg' /></div>
+                    <div><img src='/assets/banner3.jpg' /></div>
+                    <div><img src='/assets/banner1.jpg' /></div>
+                    <div><img src='/assets/banner3.jpg' /></div>
+                    <div><img src='/assets/banner1.jpg' /></div>
+                    <div><img src='/assets/banner3.jpg' /></div>
                 </PandaSlider>
-                <div className="container">
+                <div className="container article-container">
                     <div className="row">
-                        <div className="col-xs-12">
-                            <ol>
-                                {!this.props.products.items.length && (<Loading></Loading>)}
-                                {this.props.products.items.map(item => (
-                                    <Article key={item.id} content={item}></Article>
-                                ))}
-                            </ol>
-                        </div>
+                        {!this.props.products.items.length && (<Loading></Loading>)}
+                        {articles}
                     </div>
                 </div>
             </div>

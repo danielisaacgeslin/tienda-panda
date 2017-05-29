@@ -11,10 +11,18 @@ export default class Article extends React.Component {
     }
 
     render() {
+        const imageUrl = this.props.content.pictures.length && this.props.content.pictures[0].url;
         return (
             <article className="article">
-                <Link to={`${routeNames.detail}/${this.props.content.id}`} key={this.props.content.id}>
-                    {this.props.content.title} - <strong>${this.props.content.price.toLocaleString()}</strong>
+                <Link className="article__link" to={`${routeNames.detail}/${this.props.content.id}`}>
+                    <div
+                        className="article__thumb"
+                        style={{ backgroundImage: `url("${imageUrl || this.props.content.thumbnail}")` }}>
+                    </div>
+                    {/*<img className="article__thumb" src={imageUrl || this.props.content.thumbnail} alt={this.props.content.title} />*/}
+                    <h3 className="article__title">{this.props.content.title}</h3>
+                    <h6 className="article__price">${this.props.content.price.toLocaleString()}</h6>
+                    <button className="btn btn-success article__cta">ver más</button>
                 </Link>
             </article>
         );

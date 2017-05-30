@@ -19,7 +19,9 @@ export default class PandaSlider extends React.Component {
             pauseOnHover: true,
             centerMode: true
         };
-        setTimeout(()=>this.refs.slider.slickNext(), 3000); // workaround, autoplay sometimes freeze on the first slide
+        setTimeout(() => {
+            if (this.refs && this.refs.slider) this.refs.slider.slickNext()
+        }, 3000); // workaround, autoplay sometimes freeze on the first slide
     }
 
     render() {

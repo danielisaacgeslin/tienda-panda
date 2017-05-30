@@ -8,7 +8,7 @@ import '../css/style.scss';
 import { routeNames } from './config/constants';
 import { store } from './store';
 
-import { Main } from './layouts/base';
+import { Base } from './layouts/base';
 import { Products } from './layouts/products';
 import { Promotions } from './layouts/promotions';
 import { SecondHand } from './layouts/second-hand';
@@ -21,7 +21,7 @@ class App extends React.Component {
             <Provider store={store}>
                 <BrowserRouter>
                     <Switch>
-                        <Main path="/">
+                        <Base path="/">
                             <Switch>
                                 <Route path={routeNames.products} component={Products}></Route>
                                 <Route path={routeNames.promotions} component={Promotions}></Route>
@@ -29,7 +29,7 @@ class App extends React.Component {
                                 <Route path={`${routeNames.detail}/:id`} component={Detail}></Route>
                                 <Route component={Products}></Route>
                             </Switch>
-                        </Main>
+                        </Base>
                     </Switch>
                 </BrowserRouter>
             </Provider>

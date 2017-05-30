@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { store } from '../../store';
 import { fetchProducts } from './products-actions';
-import { Article } from '../../shared/components/article';
+import { ArticleList } from '../../shared/components/article-list';
 import { Loading } from '../../shared/components/loading';
 import { PandaSlider } from '../../shared/components/panda-slider';
 
@@ -11,19 +12,23 @@ import './style.scss';
 class Products extends React.Component {
     constructor(props) {
         super(props);
-        if (!this.props.products.items.length) this.props.fetchProducts();
+    }
+
+    componentWillMount() {
+        if (this.props.products.items.length) return;
+        if (Object.keys(this.props.mlIds).length) this.props.fetchProducts();
+        else this.unsubscribe = store.subscribe(() => {
+            if (Object.keys(this.props.mlIds).length) return;
+            this.unsubscribe();
+            this.props.fetchProducts();
+        });
+    }
+
+    componentWillUnmount() {
+        if (this.unsubscribe) this.unsubscribe();
     }
 
     render() {
-        const articles = [];
-        this.props.products.items.forEach((item, index) => {
-            articles.push((
-                <div key={item.id} className="col-md-3">
-                    <Article content={item}></Article>
-                </div>
-            ));
-            if (!((index + 1) % 4)) articles.push((<div key={`clear${item.id}`} className="clearfix"></div>));
-        });
         return (
             <div className="products">
                 <PandaSlider>
@@ -37,7 +42,7 @@ class Products extends React.Component {
                 <div className="container article-container">
                     <div className="row">
                         {!this.props.products.items.length && (<Loading></Loading>)}
-                        {articles}
+                        <ArticleList articles={this.props.products.items}></ArticleList>
                     </div>
                 </div>
             </div>
@@ -46,7 +51,7 @@ class Products extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return { products: state.products };
+    return { products: state.products, mlIds: state.mlIds };
 };
 
 const mapDispatchToProps = (dispatch) => {

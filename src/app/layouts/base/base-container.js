@@ -1,21 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import { fetchMLIds } from './base-actions';
 import { Header } from './header';
 import { Footer } from './footer';
 
 import './style.scss';
 
-class Main extends React.Component {
+class Base extends React.Component {
     constructor(props) {
         super(props);
     }
 
+    componentWillMount(){
+        this.props.fetchMLIds();
+    }
+
     render() {
         return (
-            <div className="main">
+            <div className="base">
                 <Header></Header>
-                <div className="main__content">
+                <div className="base__content">
                     {this.props.children}
                 </div>
                 <Footer></Footer>
@@ -25,12 +30,14 @@ class Main extends React.Component {
 }
 
 const mapStateToProps = (state) => {
-    return {};
+    return { mlIds: state.mlIds };
 }
 
 const mapDispatchToProps = (dispatch) => {
-    return {};
+    return {
+        fetchMLIds: () => dispatch(fetchMLIds())
+    };
 }
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(Main);
+export default connect(mapStateToProps, mapDispatchToProps)(Base);

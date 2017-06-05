@@ -1,0 +1,22 @@
+@import '../../../../css/colors';
+@import '../../../../css/placeholders';
+
+$icon-size: 25px;
+
+.search-input {
+    &__icon {
+        font-size: $icon-size;
+        color: $tp-primary;
+        vertical-align: sub;
+    }
+
+    &__input-container {
+        padding-left: 10px;
+        display: inline-block;
+        width: calc(100% - #{$icon-size});
+    }
+
+    &__input {
+        @extend %no-radius;
+    }
+}

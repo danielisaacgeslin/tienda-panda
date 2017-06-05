@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 
 import { routeNames } from '../../../config/constants';
 
+import { SearchInput } from '../../../shared/components/search-input';
+import { SocialNetworkList } from '../../../shared/components/social-network-list';
+
 import './style.scss';
 
 export default class Header extends React.Component {
@@ -19,7 +22,10 @@ export default class Header extends React.Component {
                             <img className="main-logo__image" src="./assets/tpanda.png" alt="TIENDA PANDA" />
                         </div>
                         <div className="col-sm-3">
-                            social networks
+                            <SocialNetworkList></SocialNetworkList>
+                            <div className="search-input">
+                                <SearchInput></SearchInput>
+                            </div>
                         </div>
                     </div>
                 </div>

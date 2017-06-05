@@ -1,0 +1,1 @@
+export { default as SocialNetworkList } from './social-network-list-component';

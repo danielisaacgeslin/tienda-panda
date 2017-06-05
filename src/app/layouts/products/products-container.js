@@ -31,15 +31,20 @@ class Products extends React.Component {
     render() {
         return (
             <div className="products">
-                <PandaSlider>
+                {/*<PandaSlider>
                     <div><img src='/assets/banner1.jpg' /></div>
                     <div><img src='/assets/banner3.jpg' /></div>
                     <div><img src='/assets/banner1.jpg' /></div>
                     <div><img src='/assets/banner3.jpg' /></div>
                     <div><img src='/assets/banner1.jpg' /></div>
                     <div><img src='/assets/banner3.jpg' /></div>
-                </PandaSlider>
+                </PandaSlider>*/}
                 <div className="container article-container">
+                    <div className="row">
+                        <div class="col-xs-12">
+                            <h2>productos/colchon y sommier pocket</h2>
+                        </div>
+                    </div>
                     <div className="row">
                         {!this.props.products.items.length && (<Loading></Loading>)}
                         <ArticleList articles={this.props.products.items}></ArticleList>

@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { PandaInput } from '../panda-input';
+
 import './style.scss';
 
 export default class SearchInput extends React.Component {
@@ -12,7 +14,7 @@ export default class SearchInput extends React.Component {
             <div className="search-input">
                 <span className="glyphicon glyphicon-search search-input__icon"></span>
                 <div className="search-input__input-container">
-                    <input className="form-control search-input__input" type="text" />
+                    <PandaInput onValueChange={() => { }} />
                 </div>
             </div>
         );

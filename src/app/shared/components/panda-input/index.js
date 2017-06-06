@@ -1,0 +1,1 @@
+export { default as PandaInput } from './panda-input-component';

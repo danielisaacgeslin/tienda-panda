@@ -1,5 +1,4 @@
 @import '../../../../css/colors';
-@import '../../../../css/placeholders';
 
 $icon-size: 25px;
 
@@ -14,9 +13,5 @@ $icon-size: 25px;
         padding-left: 10px;
         display: inline-block;
         width: calc(100% - #{$icon-size});
-    }
-
-    &__input {
-        @extend %no-radius;
     }
 }

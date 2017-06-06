@@ -1,0 +1,8 @@
+@import '../../../../css/colors';
+@import '../../../../css/placeholders';
+
+.panda-input {
+    &__input {
+        @extend %no-radius;
+    }
+}

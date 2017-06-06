@@ -1,0 +1,11 @@
+@import '../../../../css/colors';
+
+.footer {
+    &__info-container {
+        background-color: $tp-primary-light;
+    }
+
+    &__contact-container {
+        background-color: $tp-primary-dark;
+    }
+}

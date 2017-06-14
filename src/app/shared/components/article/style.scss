@@ -1,4 +1,5 @@
 @import '../../../../css/colors';
+@import '../../../../css/placeholders';
 
 %text {
     text-align: center;
@@ -16,6 +17,8 @@
     }
 
     &__thumb {
+        @extend %shadow;
+        
         width: 100%;
         height: 200px;
         background-position: center;
@@ -31,9 +34,12 @@
 
     &__price{
         @extend %text;
-        color: $tp-black;
+        color: $tp-primary;
+        background-color: $tp-light-gray; 
         font-size: 22px;
         font-weight: bold;
+        margin: 0;
+        padding: 5px;
     }
 
     &__cta {
@@ -41,6 +47,10 @@
         background-color: $tp-primary;
         margin: auto;
         display: block;
-        min-width: 80%;
+
+        &:hover {
+            border-color: $tp-primary-dark;
+            background-color: $tp-primary-dark;
+        }
     }
 }

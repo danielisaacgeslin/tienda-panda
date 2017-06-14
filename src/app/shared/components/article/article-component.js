@@ -20,8 +20,10 @@ export default class Article extends React.Component {
                         style={{ backgroundImage: `url("${imageUrl || this.props.content.thumbnail}")` }}>
                     </div>
                     <h3 className="article__title">{this.props.content.title}</h3>
-                    <h6 className="article__price">${this.props.content.price.toLocaleString()}</h6>
-                    <button className="btn btn-success article__cta">ver más</button>
+                    <div className="row">
+                        <h6 className="col-md-6 article__price">${this.props.content.price.toLocaleString()}</h6>
+                        <button className="col-md-6 btn btn-success article__cta">ver más</button>
+                    </div>
                 </Link>
             </article>
         );

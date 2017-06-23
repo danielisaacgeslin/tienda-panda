@@ -1,0 +1,1 @@
+export { default as SmallTitle } from './small-title-component';

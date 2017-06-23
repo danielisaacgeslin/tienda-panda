@@ -23,12 +23,13 @@
         }
 
         &__item {
+            text-transform: uppercase;
             color: $tp-light-gray;
             text-decoration: none;
         }
     }
 
     .search-input {
-        margin-top: 60px;
+        margin-top: 40px;
     }
 }

@@ -8,4 +8,41 @@
     &__contact-container {
         background-color: $tp-primary-dark;
     }
+
+    &__big-button-container {
+        padding: 15px 0;
+    }
+
+    &__big-button-inner-container {
+        display: block;
+        margin: auto;
+        width: 80%;
+    }
+
+    &__middle-ornament {
+        height: 20px;
+        background-color: $tp-primary;
+    }
+
+    &__big-button, &__big-button a, &__big-button span {
+        color: $tp-light-gray;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+    &__subscription-input {
+        margin: 15px 0 5px 0;
+    }
+
+    &__subscription-text {
+        font-size: 13px;
+        text-align: center;
+        color: $tp-light-gray;
+        text-transform: uppercase;
+    }
+
+    &__social-networks {
+        width: 145px;
+        margin: auto;
+    }
 }

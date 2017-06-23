@@ -1,5 +1,31 @@
+@import '../../../css/colors';
+
 .products {
-    .article-container {
-        padding: 15px 0;
+    &__article-container {
+        padding: 0;
+    }
+
+    &__main-content {
+        margin-top: 15px;
+    }
+
+    &__delivery {
+        margin-top: 15px;
+    }
+
+    &__delivery-text {
+        text-transform: initial;
+        font-style: initial;
+        color: $tp-black;
+    }
+
+    &__delivery-big {
+        color: $tp-primary;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    &__delivery-small {
+        color: $tp-primary;
     }
 }
